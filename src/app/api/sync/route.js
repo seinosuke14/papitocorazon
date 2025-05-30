@@ -5,6 +5,7 @@ export async function GET() {
     const response = await fetch("https://mindicador.cl/api");
     const data = await response.json();
 
+    await db.query("DELETE FROM indicadores");
     // Usamos fecha general del objeto
     const fecha = new Date(data.fecha);
 
